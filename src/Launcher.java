@@ -6,7 +6,7 @@ public class Launcher
     {
         System.out.println("Hello World ! Type in your command: ");
         Scanner sc = new Scanner( System.in );
-        String s = sc.nextLine();
+        String s = sc.nextLine();/*
         if (s.equals("quit"))
         {
             System.exit(0);
@@ -14,6 +14,12 @@ public class Launcher
         else
         {
             System.out.println("Unknown command");
+        }*/
+        while (!s.equals("quit"))
+        {
+            System.out.println("Unknown command. Try again: ");
+            s = sc.nextLine();
         }
+        System.exit(0);
     }
 }

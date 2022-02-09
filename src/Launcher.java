@@ -4,8 +4,18 @@ public class Launcher
 {
     public static void main(String[] args)
     {
-        System.out.println("Hello World ! Type in your command: ");
-        List<Command> C = List.of(new Quit(), new Fibo(), new Freq());
+        System.out.println("Doomed world ! Type in your command: ");
+        Scanner s = new Scanner(System.in);
+        String c = s.nextLine();
+        s.close();
+        if (c.equals("quit")){
+            
+            System.out.println("You're doomed too !");
+        } else {
+            System.out.println("Unknown command.");
+        }
+        System.exit(0);
+        /*List<Command> C = List.of(new Quit(), new Fibo(), new Freq());
         Scanner sc = new Scanner( System.in );
         String c = sc.nextLine();
         int i;
@@ -25,7 +35,6 @@ public class Launcher
                 c = sc.nextLine();
                 i = 0;
             }
-        }
-        System.exit(0);
+        }*/
     }
 }

@@ -33,25 +33,24 @@ public class Freq implements Command
             }
             Set<Map.Entry<String, Integer> > set = h.entrySet();
             String A = "", B = "", C = "";
-            int a = 0, b = 0, c = 0;
+            int a = 0, b = 0;
             for (Map.Entry<String, Integer> me : set)
             {
                 if (me.getValue() > a)
                 {
-                    a = me.getValue();
-                    c = b; C = B;
+                    C = B;
                     b = a; B = A;
+                    a = me.getValue();
                     A = me.getKey();
                 }
                 else if (me.getValue() > b)
                 {
+                    C = B;
                     b = me.getValue();
-                    c = b; C = B;
                     B = me.getKey();
                 }
                 else
                 {
-                    c = me.getValue();
                     C = me.getKey();
                 }
             }
@@ -59,6 +58,7 @@ public class Freq implements Command
         }
         catch (IOException e)
         {
+            System.out.println("Unreadable file: ");
             e.printStackTrace();
         }
         return false;

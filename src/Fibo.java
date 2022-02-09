@@ -5,7 +5,6 @@ public class Fibo implements Command
     @Override
     public String Name()
     {
-        System.out.println("Goodbye.");
         return "fibo";
     }
 

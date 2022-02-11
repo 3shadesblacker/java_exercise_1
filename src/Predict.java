@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
 
 public class Predict implements Command{
     @Override
@@ -29,7 +28,7 @@ public class Predict implements Command{
             for (int i = 0; i < S.length; i++)
             {
                 if (h.containsKey(S[i])){
-                    if (!S[S[i].length()-1].equals('.'))
+                    if (!S[i].substring(S[i].length()-1).equals("."))
                     {
                         List<String> S2 = h.get(S[i]);
                         S2.add(S[i+1]);
@@ -42,7 +41,7 @@ public class Predict implements Command{
                     }
                 }
                 else{
-                    if (!S[S[i].length()-1].equals('.'))
+                    if (!S[i].substring(S[i].length()-1).equals("."))
                     {
                         List<String> S2 = Arrays.asList(new String[] {});
                         S2.add(S[i+1]);
@@ -78,7 +77,11 @@ public class Predict implements Command{
             }
             if (found){
                 int count = 0;
-                //for (string w : h2.keySet()){}
+                for (; count == 20 || word.substring(word.length()-1).equals("."); count++){
+                    System.out.print(word+" ");
+                    word = h2.get(word);
+                }
+                System.out.println(word);
             }
             else{
                 System.out.println("This word isn't present in the dictionnary.");
@@ -87,7 +90,8 @@ public class Predict implements Command{
         catch (IOException e)
         {
             System.out.println("Unreadable file: ");
-            e.printStackTrace();
+            System.out.println(e.getClass().getCanonicalName());
+            System.out.println(e.getMessage());
         }
         return false;
     }

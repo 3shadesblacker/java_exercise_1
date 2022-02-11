@@ -4,7 +4,7 @@ public class Launcher
 {
     public static void main(String[] args)
     {
-        Command[] C = {new Quit(), new Fibo(), new Freq()};
+        Command[] C = {new Quit(), new Fibo(), new Freq(), new Predict()};
         System.out.println("Enter a command:");
         Scanner sc = new Scanner( System.in );
         String cmd = sc.nextLine();
@@ -14,6 +14,9 @@ public class Launcher
                 C[1].Run(sc);
             // freq
             else if(cmd.equals(C[2].Name()))
+                C[2].Run(sc);
+            // predict
+            else if(cmd.equals(C[3].Name()))
                 C[2].Run(sc);
             // unknown command
             else

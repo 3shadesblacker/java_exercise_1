@@ -11,9 +11,9 @@ public class Fibo implements Command
     @Override
     public boolean Run(Scanner s)
     {
-        int n;
+        
         System.out.println("Type the index value: ");
-        n = s.nextInt();
+        int n = parseInt(s.nextLine());
         if (n == 0 || n == 1)
         {
             System.out.println(n);
@@ -30,5 +30,9 @@ public class Fibo implements Command
             System.out.println(c);
         }
         return false;
+    }
+
+    private int parseInt(String nextLine) {
+        return 0;
     }
 }

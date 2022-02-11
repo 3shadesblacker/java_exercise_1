@@ -4,26 +4,25 @@ public class Launcher
 {
     public static void main(String[] args)
     {
-        List<Command> C = List.of(new Quit(), new Fibo(), new Freq());
-        System.out.println("Enter a command or be doomed !");
+        Command[] C = {new Quit(), new Fibo(), new Freq()};
+        System.out.println("Enter a command:");
         Scanner sc = new Scanner( System.in );
-        String c = sc.nextLine();
-        int i = 0;
+        String cmd = sc.nextLine();
         do{
-            if (C.get(i).Name().equals(c))
-            {
-                if (C.get(i).Run(sc)) 
-                {
-                    sc.close();
-                    break;
-                }
-            }
-            else if ( i == C.size() - 1){
-                System.out.println("Command wasn't found.");
-            }
+            // fibo
+            if(cmd.equals(C[1].Name()))
+                C[1].Run(sc);
+            // freq
+            else if(cmd.equals(C[2].Name()))
+                C[2].Run(sc);
+            // unknown command
             else
-                i++;
-            c = sc.nextLine();
-        }while (!C.get(i).Run(sc));
+                System.out.println("Unknown Command");
+            // asking for a new command
+            System.out.println("Enter a command:");
+            cmd = sc.nextLine();
+        }while(!cmd.equals(C[0].Name()));
+        sc.close();
+        System.exit(0);
     }
 }

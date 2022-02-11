@@ -17,6 +17,7 @@ public class Freq implements Command
     @Override
     public boolean Run(Scanner s)
     {
+        // getting the tree most used words in a file
         System.out.println("Type in the path to your file: ");
         Path p = Path.of(s.nextLine());
         try
@@ -59,7 +60,8 @@ public class Freq implements Command
         catch (IOException e)
         {
             System.out.println("Unreadable file: ");
-            e.printStackTrace();
+            System.out.println(e.getClass().getCanonicalName());
+            System.out.println(e.getMessage());
         }
         return false;
     }
